@@ -21,7 +21,20 @@ export class UserController {
     await this.prisma.user.create({
       data: {
         name: body.name,
+        socialName: body.socialName,
         email: body.email,
+        document: body.document,
+        password: body.password,
+        phone: body.phone,
+        address: {
+          street: body.address.street,
+          number: body.address.number,
+          neighborhood: body.address.neighborhood,
+          complement: body.address.complement,
+          city: body.address.city,
+          state: body.address.state,
+          zipCode: body.address.zipCode,
+        },
       },
     });
 
